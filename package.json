@@ -1,0 +1,36 @@
+{
+  "name": "chcp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "A JS binding for couple of windows abstractions.",
+  "author": "Gireesh Punathil <gpunathi@in.ibm.com>",
+  "contributors": [],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ibmruntimes/chcp"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "tap test/*.js"
+  },
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "files": [
+    "LICENSE",
+    "CONTRIBUTING.md",
+    "README.md",
+    "index.js",
+    "chcp.cc",
+    "binding.gyp",
+    "test/"
+  ],
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-strongloop": "^2.1.0",
+    "tap": "^10.7.3"
+  },
+  "dependencies": {},
+  "os": ["windows"]
+}
