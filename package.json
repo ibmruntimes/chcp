@@ -31,5 +31,6 @@
     "eslint-config-strongloop": "^2.1.0",
     "tap": "^10.7.3"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "os": ["win32"]
 }
