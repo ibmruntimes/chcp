@@ -14,8 +14,8 @@
  * limitations under the License.
  ************************************************************************/
 'use strict';
-const chcp = require('../index');
-const tap = require('tap');
+var chcp = require('../index');
+var tap = require('tap');
 
 var cp = chcp.getConsoleCodePage();
 var cp1 = 0;
