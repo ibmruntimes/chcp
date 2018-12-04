@@ -8,14 +8,14 @@ implement and incorporate projects of similar objectives under this umbrella.
 You can propose contributions by sending pull requests through GitHub. Following these guidelines
 will help us to merge your pull requests smoothly:
 
-1. It is generally a good idea to file an issue to explain your idea before
-   writing code or submitting a pull request, though this is not mandatory.
-2. Please read carefully and adhere to the legal considerations and
-   copyright/license requirements outlined below.
-3. Follow the coding style and format of the code you are modifying as the existing code base.
-   The existing code base was built using eslint and eslint-config-strongloop (see package.json).
-4. Follow the commit guidelines found below.
-5. Ensure that `npm run pretest` and `npm run test` pass all tests before you submit a Pull Request.
+1.  It is generally a good idea to file an issue to explain your idea before
+    writing code or submitting a pull request, though this is not mandatory.
+2.  Please read carefully and adhere to the legal considerations and
+    copyright/license requirements outlined below.
+3.  Follow the coding style and format of the code you are modifying as the existing code base.
+    The existing code base was built using eslint and eslint-config-strongloop (see package.json).
+4.  Follow the commit guidelines found below.
+5.  Ensure that `npm run pretest` and `npm run test` pass all tests before you submit a Pull Request.
 
 ## Commit Guidelines
 Start the first line with the area of code or the feature which gets affected,

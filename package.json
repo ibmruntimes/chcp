@@ -11,7 +11,7 @@
     "url": "https://github.com/ibmruntimes/chcp"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint . && eclint check src test *.md *.js",
     "test": "tap test/*.js"
   },
   "engines": {
@@ -27,6 +27,7 @@
     "test/"
   ],
   "devDependencies": {
+    "eclint": "^2.8.1",
     "eslint": "^3.19.0",
     "eslint-config-strongloop": "^2.1.0",
     "tap": "^10.7.3"

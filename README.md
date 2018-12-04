@@ -7,7 +7,7 @@
 This library provides native bindings for Windows APIs. To start with, `SetConsoleOutputCP` and `GetConsoleOutputCP` APIs.
 
 ### **Use Case**
-While the most essential and common system APIs are abstracted well inside Node.js core, applications dealing with non-web transactions often find many win32 APIs are not included in the core. This imposes problem for a small subset of the users. 
+While the most essential and common system APIs are abstracted well inside Node.js core, applications dealing with non-web transactions often find many win32 APIs are not included in the core. This imposes problem for a small subset of the users.
 
 `chcp` is an effort to encapsulate the output code page used by the console of the running process.
 
