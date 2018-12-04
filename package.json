@@ -22,7 +22,7 @@
     "CONTRIBUTING.md",
     "README.md",
     "index.js",
-    "chcp.cc",
+    "src/chcp.cc",
     "binding.gyp",
     "test/"
   ],
