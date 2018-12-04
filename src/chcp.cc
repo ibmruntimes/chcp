@@ -46,7 +46,7 @@ void SetConsoleCodePage(const FunctionCallbackInfo<Value>& args) {
   ret = SetConsoleOutputCP(chcp);
   if (!ret)
     error = GetLastError();
- args.GetReturnValue().Set(Int32::New(isolate, error));
+  args.GetReturnValue().Set(Int32::New(isolate, error));
 }
 
 void init(Local<Object> exports) {
@@ -54,4 +54,3 @@ void init(Local<Object> exports) {
   NODE_SET_METHOD(exports, "setConsoleCodePage", SetConsoleCodePage);
 }
 NODE_MODULE(NODE_GYP_MODULE_NAME, init)
-
