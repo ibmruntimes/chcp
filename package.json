@@ -27,9 +27,9 @@
     "test/"
   ],
   "devDependencies": {
-    "eslint": "^3.19.0",
+    "eslint": "^5.9.0",
     "eslint-config-strongloop": "^2.1.0",
-    "tap": "^10.7.3"
+    "tap": "^12.1.0"
   },
   "dependencies": {},
   "os": ["win32"]
