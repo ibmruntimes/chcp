@@ -1,0 +1,42 @@
+version: "{build}"
+skip_branch_with_pr: true
+build: off
+
+environment:
+  matrix:
+    - nodejs_version: stable
+    - nodejs_version: lts
+
+platform:
+  - x64
+  - x86
+
+# Install scripts. (runs after repo cloning)
+install:
+  # install Node.js
+  - ps: Install-Product node $env:nodejs_version $env:platform
+  # install modules
+  - npm install --build-from-source
+
+# to run your custom scripts instead of automatic tests
+test_script:
+  # npm run lint
+  - npm test
+
+# to run your custom scripts instead of provider deployments
+after_test:
+  - npm run build
+
+artifacts:
+  - path: 'build\stage\**\*.tar.gz'
+    name: binding
+
+deploy:
+  provider: GitHub
+  auth_token:
+    secure: 8hqStAGHShwpTpTvpJqw01bteLm0Z1Ob9MdFMevTlCJWb5iVXcr7dpOMGIaOdfSz
+  # upload binding to release assets
+  artifact: /.*\.tar\.gz/
+  on:
+    # deploy on tag push only
+    appveyor_repo_tag: true

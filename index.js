@@ -14,4 +14,6 @@
  * limitations under the License.
  ************************************************************************/
 'use strict';
-module.exports = require('./build/Release/chcp');
+var binary = require('node-pre-gyp');
+var bindingPath = binary.find(require.resolve('./package.json'));
+module.exports = require(bindingPath);
