@@ -11,6 +11,8 @@
     "url": "https://github.com/ibmruntimes/chcp"
   },
   "scripts": {
+    "install": "node-pre-gyp install --fallback-to-build",
+    "build": "node-pre-gyp rebuild --build-from-source && node-pre-gyp package",
     "lint": "eslint .",
     "test": "tap test/*.js"
   },
@@ -31,6 +33,17 @@
     "eslint-config-strongloop": "^2.1.0",
     "tap": "^10.7.3"
   },
-  "dependencies": {},
-  "os": ["win32"]
+  "dependencies": {
+    "node-pre-gyp": "^0.12.0"
+  },
+  "binary": {
+    "module_name": "chcp",
+    "module_path": "./build/Release/binding/{node_abi}-{platform}-{arch}",
+    "package_name": "{node_abi}-{platform}-{arch}.tar.gz",
+    "host": "https://github.com/ibmruntimes/chcp/releases/download/",
+    "remote_path": "{version}"
+  },
+  "os": [
+    "win32"
+  ]
 }
