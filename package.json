@@ -28,7 +28,7 @@
   ],
   "devDependencies": {
     "eclint": "^2.8.1",
-    "eslint": "^3.19.0",
+    "eslint": "^6.6.0",
     "eslint-config-strongloop": "^2.1.0",
     "tap": "^10.7.3"
   },
