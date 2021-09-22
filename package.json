@@ -28,9 +28,9 @@
   ],
   "devDependencies": {
     "eclint": "^2.8.1",
-    "eslint": "^6.6.0",
+    "eslint": "^7.32.0",
     "eslint-config-strongloop": "^2.1.0",
-    "tap": "^10.7.3"
+    "tap": "^15.0.10"
   },
   "dependencies": {
     "node-addon-api": "^1.7.2"
