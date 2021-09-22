@@ -14,43 +14,44 @@
  * limitations under the License.
  *******************************************************************************/
 
-#include <node.h>
+#include <napi.h>
 #include <windows.h>
 
-using v8::FunctionCallbackInfo;
-using v8::Isolate;
-using v8::Local;
-using v8::Number;
-using v8::String;
-using v8::Value;
-using v8::Exception;
-using v8::Object;
-using v8::Int32;
+using Napi::Value;
+using Napi::CallbackInfo;
+using Napi::Env;
+using Napi::Number;
+using Napi::TypeError;
+using Napi::Object;
+using Napi::String;
+using Napi::Function;
 
 
-void GetConsoleCodePage(const FunctionCallbackInfo<Value>& args) {
-  Isolate* isolate = args.GetIsolate();
-  Local<Number> chcp = Number::New(isolate, GetConsoleOutputCP());
-  args.GetReturnValue().Set(chcp);
+Value GetConsoleCodePage(const CallbackInfo& info) {
+  Env env = info.Env();
+  Number chcp = Number::New(env, GetConsoleOutputCP());
+  return chcp;
 }
 
-void SetConsoleCodePage(const FunctionCallbackInfo<Value>& args) {
-  DWORD error = 0, chcp = 0, ret = 0;
-  Isolate* isolate = args.GetIsolate();
-  if (!args[0]->IsNumber()) {
-    isolate->ThrowException(Exception::TypeError(
-        String::NewFromUtf8(isolate, "argument should be a number.")));
-    return;
+Value SetConsoleCodePage(const CallbackInfo& info) {
+  Env env = info.Env();
+  if (info.Length() < 1 || !info[0].IsNumber()) {
+    TypeError::New(env, "argument should be a number.")
+      .ThrowAsJavaScriptException();
+    return env.Null();
   }
-  chcp = static_cast<int>(args[0]->Int32Value());
-  ret = SetConsoleOutputCP(chcp);
-  if (!ret)
-    error = GetLastError();
-  args.GetReturnValue().Set(Int32::New(isolate, error));
+  UINT chcp = info[0].As<Number>().Int32Value();
+  BOOL ret = SetConsoleOutputCP(chcp);
+
+  return ret
+    ? Number::New(env, GetLastError())
+    : Number::New(env, 0);
 }
 
-void init(Local<Object> exports) {
-  NODE_SET_METHOD(exports, "getConsoleCodePage", GetConsoleCodePage);
-  NODE_SET_METHOD(exports, "setConsoleCodePage", SetConsoleCodePage);
+Object Init(Env env, Object exports) {
+  exports.Set(String::New(env, "getConsoleCodePage"), Function::New(env, GetConsoleCodePage));
+  exports.Set(String::New(env, "setConsoleCodePage"), Function::New(env, SetConsoleCodePage));
+  return exports;
 }
-NODE_MODULE(NODE_GYP_MODULE_NAME, init)
+
+NODE_API_MODULE(addon, Init)

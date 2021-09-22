@@ -15,7 +15,7 @@
     "test": "tap test/*.js"
   },
   "engines": {
-    "node": ">= 4.0.0"
+    "node": ">= 8.6.0"
   },
   "files": [
     "LICENSE",
@@ -32,6 +32,8 @@
     "eslint-config-strongloop": "^2.1.0",
     "tap": "^10.7.3"
   },
-  "dependencies": {},
+  "dependencies": {
+    "node-addon-api": "^1.7.2"
+  },
   "os": ["win32"]
 }
